@@ -60,5 +60,9 @@ spec:
           resources:
             limits:
               memory: 20Mi
-          volumeMounts:
-      volumes:
+              cpu: 100m
+            requests:
+              memory: 10Mi
+              cpu: 50m
+           
+   
