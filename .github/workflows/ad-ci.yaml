@@ -35,10 +35,6 @@ jobs:
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/ad-service:${{ github.run_id }}
 
-        - name: verify image was pushed
-          run: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/ad-service:${{ github.run_id }}
-
     update-k8s:
         runs-on: ubuntu-latest
 
@@ -58,7 +54,7 @@ jobs:
           run: |
             git config --global user.email "${{ github.actor }}@users.noreply.github.com"
             git config --global user.name "${{ github.actor }}"
-            git pull --rebase origin feature/ci
+            git pull origin feature/ci
             git add kubernetes/ad/deploy.yaml
             git commit -m "[CI]: Update ad image tag"
             git push origin HEAD:feature/ci
