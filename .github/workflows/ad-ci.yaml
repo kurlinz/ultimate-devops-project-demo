@@ -31,6 +31,7 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             context: /src/ad-service
+            file: Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/ad-service:${{ github.run_id }}
 
