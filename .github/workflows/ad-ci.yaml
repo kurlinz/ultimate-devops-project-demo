@@ -30,7 +30,7 @@ jobs:
         - name: docker build and push
           uses: docker/build-push-action@v6
           with:
-            context: /src/ad-service
+            context: /src/ad
             file: Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/ad-service:${{ github.run_id }}
